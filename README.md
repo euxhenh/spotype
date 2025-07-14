@@ -123,18 +123,18 @@ You can also view run metadata & logs in the local ZenML dashboard.
   1. **Keyboard Listener**
      - Uses `pynput` to timestamp every key press.
 
-  2. Spotify Polling
+  2. **Spotify Polling**
      - Uses `spotipy` + OAuth to fetch your currently playing track.
      - Detects when a track changes to split keystrokes into segments.
 
   3. **Genre Enrichment**
      - Batches artist IDs through `sp.artists(...)` to fetch each artist’s genre list.
 
-  4. WPM Calculation
+  4. **WPM Calculation**
      - Counts key presses in each segment, converts to "words" (assuming 5
        chars/word), normalizes by segment duration to compute WPM.
 
-  5. Visualization
+  5. **Visualization**
      - Groups segments by track (or genre) and plots average WPM.
 
 ## Next Steps
