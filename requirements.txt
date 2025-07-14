@@ -1,0 +1,7 @@
+zenml[server]==0.84.0
+pynput
+pandas
+matplotlib
+spotipy
+dotenv
+seaborn

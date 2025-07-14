@@ -1,0 +1,6 @@
+.zen
+data
+.cache
+.env
+test.ipynb
+/**/*__pycache__
