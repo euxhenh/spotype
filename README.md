@@ -138,7 +138,7 @@ You can also view run metadata & logs in the local ZenML dashboard.
      - Groups segments by track (or genre) and plots average WPM.
 
 ## Next Steps
-  - **Focus vs. Energy buckets**: map genres to “focus”/“energetic” categories.
+  - **Focus vs. Energy buckets**: map genres to "focus"/"energetic" categories.
   - **ZenML Secrets**: store your Spotify credentials securely in a managed
     secrets store.
   - **Cloud Orchestration**: switch your stack from local to
