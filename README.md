@@ -85,7 +85,7 @@ Set your credentials (in your shell or a `.env` file):
 ```bash
 export SPOTIPY_CLIENT_ID=your_client_id
 export SPOTIPY_CLIENT_SECRET=your_client_secret
-export SPOTIPY_REDIRECT_URI=http://localhost:8888/callback
+export SPOTIPY_REDIRECT_URI=http://127.0.0.1:8888/callback
 ```
 
 Run a quick auth check to populate the token cache:
