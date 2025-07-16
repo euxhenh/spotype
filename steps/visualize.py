@@ -19,11 +19,6 @@ def visualize(df: pd.DataFrame) -> None:
     df['genres'] = df['genres'].str.split(',')
     df = df.explode('genres')
     df['genres'] = df['genres'].str.strip()
-    df = df[df['genres'] != '']
-
-    if df.empty:
-        print("No valid genre data to visualize.")
-        return
 
     ax = sns.boxplot(
         df,
