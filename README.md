@@ -55,6 +55,8 @@ def correlation_pipeline(duration: int = 60, poll_interval: int = 1):
 │   └── visualize.py              ← plotting step
 ├── utils/
 │   └── spotify_auth.py           ← OAuth helper
+├── .python-version               ← Python version for pyenv
+├── .env-example                  ← Environment variables template
 ├── requirements.txt
 └── README.md
 ```
@@ -64,8 +66,18 @@ def correlation_pipeline(duration: int = 60, poll_interval: int = 1):
 1. **Clone & Install**
 
 ```bash
-git clone https://github.com/your-org/zenml-music-typing.git
-cd zenml-music-typing
+git clone https://github.com/euxhenh/spotype.git
+cd spotype
+
+# Optional: Set Python version with pyenv (if using pyenv)
+pyenv install 3.12.0  # or your preferred version
+pyenv local 3.12.0
+
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
@@ -77,24 +89,30 @@ You’ll see a default stack with local orchestrator & artifact store.
 
 3. **Configure Spotify OAuth**
 
-Create a Spotify Developer app:
-  - Redirect URI: http://127.0.0.1:8888/callback
+Set up Spotify Developer app:
+1. Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/)
+2. Create a new app
+3. Set the redirect URI to: `http://127.0.0.1:8888/callback`
+4. Copy your Client ID and Client Secret
 
-Set your credentials (in your shell or a `.env` file):
+Create environment file:
 
 ```bash
-export SPOTIPY_CLIENT_ID=your_client_id
-export SPOTIPY_CLIENT_SECRET=your_client_secret
-export SPOTIPY_REDIRECT_URI=http://127.0.0.1:8888/callback
+cp .env-example .env
 ```
 
-Run a quick auth check to populate the token cache:
+Edit `.env` with your actual Spotify credentials:
 
 ```bash
-python - <<EOF
-from utils.spotify_auth import get_spotify_client
-get_spotify_client()
-EOF
+SPOTIPY_CLIENT_ID="your_actual_client_id_here"
+SPOTIPY_CLIENT_SECRET="your_actual_client_secret_here"
+SPOTIPY_REDIRECT_URI="http://127.0.0.1:8888/callback"
+```
+
+Test authentication:
+
+```bash
+python auth_check.py
 ```
 
 This will open your browser, ask you to grant "Playback State" permission, and

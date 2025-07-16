@@ -4,3 +4,4 @@ data
 .env
 test.ipynb
 /**/*__pycache__
+venv/

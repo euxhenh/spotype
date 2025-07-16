@@ -11,6 +11,10 @@ def visualize(df: pd.DataFrame) -> None:
         print("No data to visualize.")
         return
 
+    # Clean genres column and handle missing values
+    df['genres'] = df['genres'].fillna('').astype(str)
+    df['genres'] = df['genres'].replace('', 'Unknown Genre')
+    
     # Split and explode genres
     df['genres'] = df['genres'].str.split(',')
     df = df.explode('genres')
